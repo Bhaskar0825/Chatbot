@@ -6,7 +6,12 @@ def slowprint(s):
     for c in s + '\n':
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(.01/10)
+        time.sleep(1/10)
+def slowprint2(s):
+    for c in s + '\n':
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(.1/10)
 
 slowprint("Greetings! I'm an advanced AI chatbot designed to engage in fascinating discussions.")
 
@@ -58,8 +63,8 @@ def chatbot():
 
     slowprint("Chatbot: Here's a summary of your answers:")
     for i in range(len(questions)):
-        slowprint("Q: " + questions[i])
-        slowprint("A: " + answers[i])
+        slowprint2("Q: " + questions[i])
+        slowprint2("A: " + answers[i])
         print()
 
     slowprint("Chatbot: Thank you for chatting, " + name + "! Have a wonderful day.")
