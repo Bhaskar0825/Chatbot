@@ -6,85 +6,67 @@ def slowprint(s):
     for c in s + '\n':
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(.05)
-
-def hacker_print(s):
-    for c in s:
+        time.sleep(1/10)
+def slowprint2(s):
+    for c in s + '\n':
         sys.stdout.write(c)
         sys.stdout.flush()
-        time.sleep(random.uniform(0, 0.1))
-    print()
+        time.sleep(.1/10)
 
-def hacker_input(prompt):
-    hacker_print(prompt)
-    return input("User: ")
-
-hacker_art = """
-   _   __              __             
-  / | / /__  ____     / /_  ___  _____
- /  |/ / _ \/ __ \   / __ \/ _ \/ ___/
-/ /|  /  __/ / / /  / /_/ /  __/ /    
-/_/ |_/\___/_/ /_/  /_.___/\___/_/     
-"""
-
-hacker_intro = """
-   H A C K E R   M O D E
----------------------------
-"""
+slowprint("Greetings! I'm an advanced AI chatbot designed to engage in fascinating discussions.")
 
 def chatbot():
-    hacker_print(hacker_art)
-    slowprint(hacker_intro)
-
-    name = hacker_input(">> Enter your name: ")
-    hacker_print(">> Initiating chat sequence...")
-    slowprint("Chatbot: Greetings, " + name + "! You have entered the hacker realm.")
+    name = input("Chatbot: What's your name? ")
+    slowprint("Chatbot: Nice to meet you, " + name + "! You have a wonderful name.")
 
     questions = [
-        ">> Specify your target's IP address: ",
-        ">> Decrypt the secret passphrase: ",
-        ">> Bypass the security firewall: ",
-        ">> Extract classified information: ",
-        ">> Engage stealth mode: ",
-        ">> Perform a remote hack: ",
+        "What are your hobbies?",
+        "Tell me about an interesting trip or adventure you had.",
+        "Do you have any hidden talents or skills?",
+        "If you could have any superpower, what would it be and why?",
+        "What's the most memorable book you've read recently?",
+        "Share a funny or exciting incident from your life.",
+        "What's something you've always wanted to learn or try?",
     ]
 
     answers = []
 
     for question in questions:
-        response = hacker_input(question)
+        slowprint("Chatbot: " + question)
+        response = input("User: ")
         answers.append(response)
 
-        hacker_responses = [
-            ">> Target acquired. Ready for extraction.",
-            ">> Encryption cracked. Access granted.",
-            ">> Firewall breached. Proceed with caution.",
-            ">> Classified information extracted successfully.",
-            ">> Stealth mode activated. Undetectable.",
-            ">> Remote hack initiated. Standby for results.",
+        responses = [
+            "That sounds fascinating!",
+            "Wow, I'd love to hear more about it!",
+            "Impressive!",
+            "I can see why that interests you.",
+            "That must have been quite an experience.",
+            "Nice! It's always good to have a passion.",
+            "I hope you get the chance to explore that further."
         ]
 
-        random_response = random.choice(hacker_responses)
-        hacker_print(random_response)
+        random_response = random.choice(responses)
+        slowprint("Chatbot: " + random_response)
 
     while True:
-        response = hacker_input(">> Chat sequence completed. Proceed to final stage? (yes/no) ")
+        response = input("Chatbot: Did you enjoy answering those questions? (yes/no) ")
 
         if response.lower() == "yes":
-            hacker_print(">> Finalizing operation. Stand by...")
+            slowprint("Chatbot: I'm glad you enjoyed it!")
             break
         elif response.lower() == "no":
-            hacker_print(">> Chat sequence aborted. Exiting hacker mode.")
+            slowprint("Chatbot: I'm sorry if the questions weren't to your liking. I'll improve next time.")
             break
         else:
-            hacker_print(">> Invalid response. Please re-enter.")
+            slowprint("Chatbot: I'm sorry, I didn't understand. Please answer with 'yes' or 'no'.")
 
-    hacker_print(">> Operation summary:")
+    slowprint("Chatbot: Here's a summary of your answers:")
     for i in range(len(questions)):
-        hacker_print("Q: " + questions[i])
-        hacker_print("A: " + answers[i])
+        slowprint2("Q: " + questions[i])
+        slowprint2("A: " + answers[i])
         print()
 
-    hacker_print(">> Mission accomplished, " + name + "! Exiting hacker mode.")
+    slowprint("Chatbot: Thank you for chatting, " + name + "! Have a wonderful day.")
 
 chatbot()
